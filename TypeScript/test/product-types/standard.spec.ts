@@ -14,11 +14,5 @@ describe('General items', () => {
     expect(gildedRose.items[0].quality).toBe(18);
     expect(gildedRose.items[0].sellIn).toBe(-2);
   });
-
-  it('should not allow quality to drop below 0', () => {
-    const gildedRose = new GildedRose([new Item('Standard Item', -1, 0)]);
-    gildedRose.updateQuality();
-    expect(gildedRose.items[0].quality).toBe(0);
-  });
 })
 

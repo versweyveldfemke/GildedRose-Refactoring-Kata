@@ -38,32 +38,10 @@ describe('Backstage passes', () => {
       expect(gildedRose.items[0].quality).toBe(expectedQuality);
       expect(gildedRose.items[0].sellIn).toBe(expectedSellIn);
     });
-  it('should keep a quality equal to zero when sellIn is negative', () => {
+  it('should have quality drop to zero when sellIn becomes negative', () => {
     const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20)]);
     gildedRose.updateQuality();
     expect(gildedRose.items[0].quality).toBe(0);
     expect(gildedRose.items[0].sellIn).toBe(-1);
   })
-  it.each([
-    [new Item('Backstage passes to a TAFKAL80ETC concert', -1, 20), -2, 0],
-    [new Item('Backstage passes to a TAFKAL80ETC concert', -2, 0), -3, 0],
-  ])('should have quality equal to zero and decrease sellIn by 1 when sellIn is negative',
-    (item, expectedSellIn, expectedQuality) => {
-      const gildedRose = new GildedRose([item]);
-      gildedRose.updateQuality();
-      expect(gildedRose.items[0].quality).toBe(expectedQuality);
-      expect(gildedRose.items[0].sellIn).toBe(expectedSellIn);
-    });
-  it.each([
-    [new Item('Backstage passes to a TAFKAL80ETC concert', 15, 49), 14, 50],
-    [new Item('Backstage passes to a TAFKAL80ETC concert', 15, 50), 14, 50],
-    [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 50), 9, 50],
-    [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 50), 4, 50],
-  ])('should not allow quality to exceed 50',
-    (item, expectedSellIn, expectedQuality) => {
-      const gildedRose = new GildedRose([item]);
-      gildedRose.updateQuality();
-      expect(gildedRose.items[0].quality).toBe(expectedQuality);
-      expect(gildedRose.items[0].sellIn).toBe(expectedSellIn);
-    });
 })

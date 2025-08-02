@@ -14,9 +14,9 @@ import { GildedRose, Item } from "@/gilded-rose";
     });
 
     it('should not change quality or sellIn when sellIn is negative', () => {
-      const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', -1, 50)]);
+      const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', -1, 60)]);
       gildedRose.updateQuality();
-      expect(gildedRose.items[0].quality).toBe(50);
+      expect(gildedRose.items[0].quality).toBe(60);
       expect(gildedRose.items[0].sellIn).toBe(-1);
     });
   })

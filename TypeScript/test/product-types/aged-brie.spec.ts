@@ -28,11 +28,4 @@ describe('Aged Brie', () => {
     expect(gildedRose.items[0].quality).toBe(50);
     expect(gildedRose.items[0].sellIn).toBe(1);
   });
-
-  // to implement this when updating code
-  // will not do now because we might lose logic if we update code wrongly
-  // it('should throw an error if quality exceeds 50', () => {
-  //   const gildedRose = new GildedRose([new Item('Aged Brie', 2, 51)]);
-  //   expect(() => gildedRose.updateQuality()).toThrow('Quality cannot exceed 50');
-  // });
 });

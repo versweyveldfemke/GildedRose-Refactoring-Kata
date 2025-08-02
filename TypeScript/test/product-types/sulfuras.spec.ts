@@ -1,8 +1,4 @@
 
-
-// new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-// new Item("Sulfuras, Hand of Ragnaros", -1, 80), 
-
 import { GildedRose, Item } from "@/gilded-rose";
 
 describe('Sulfuras', () => {

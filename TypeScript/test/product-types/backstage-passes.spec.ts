@@ -1,7 +1,3 @@
-// new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-// new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-// new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-
 import { GildedRose, Item } from "@/gilded-rose";
 
 describe('Backstage passes', () => {

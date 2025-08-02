@@ -18,6 +18,34 @@ export class GildedRose {
   }
 
   updateQuality() {
+    if (!this.items || !Array.isArray(this.items)) {
+      throw new Error('Items must be an array');
+    }
+
+    this.items.forEach(item => {
+      if (item.quality < 0 && !item.name.includes('Sulfuras')) {
+        throw new Error('Quality cannot be negative');
+      }
+      if (item.quality > 50 && !item.name.includes('Sulfuras')) {
+        throw new Error('Quality cannot exceed 50');
+      }
+
+      // if (item.name.includes('Aged Brie')) {}
+      // else if (item.name.includes('Backstage passes')) {}
+      // else if (item.name.includes('Sulfuras')) {}
+      // else {
+      //   if (item.quality < 0) {
+      //     throw new Error('Quality cannot be negative');
+      //   }
+      //   if (item.quality > 50) {
+      //     throw new Error('Quality cannot exceed 50');
+      //   }
+      // }
+    });
+
+
+
+
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
         if (this.items[i].quality > 0) {

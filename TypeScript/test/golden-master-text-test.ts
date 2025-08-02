@@ -15,17 +15,17 @@ const items = [
   new Item("Conjured Mana Cake", 3, 6)];
 
 
-const gildedRose = new GildedRose(items);
+const gildedRose = new GildedRose(items); // intentionally passing a number to test error handling
 
 let days: number = 2;
 if (process.argv.length > 2) {
-    days = +process.argv[2];
-  }
+  days = +process.argv[2];
+}
 
 for (let i = 0; i < days + 1; i++) {
   console.log("-------- day " + i + " --------");
   console.log("name, sellIn, quality");
-  items.forEach(element => {
+  gildedRose.items.forEach(element => {
     console.log(element.name + ', ' + element.sellIn + ', ' + element.quality);
 
   });

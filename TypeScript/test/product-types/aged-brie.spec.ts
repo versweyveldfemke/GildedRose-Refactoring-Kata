@@ -1,5 +1,3 @@
-//  new Item("Aged Brie", 2, 0)
-
 import { GildedRose, Item } from "@/gilded-rose";
 
 describe('Aged Brie', () => {

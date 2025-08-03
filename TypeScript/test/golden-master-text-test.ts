@@ -15,7 +15,7 @@ const items = [
   new Item("Conjured Mana Cake", 3, 6)];
 
 
-const gildedRose = new GildedRose(items); // intentionally passing a number to test error handling
+const gildedRose = new GildedRose(items);
 
 let days: number = 2;
 if (process.argv.length > 2) {

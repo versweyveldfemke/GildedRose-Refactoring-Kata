@@ -1,18 +1,25 @@
 import { Item, GildedRose } from '@/gilded-rose';
 
 describe('General items', () => {
-  it('should decrease quality and sellIn by 1 when sellIn is positive', () => {
-    const gildedRose = new GildedRose([new Item('Standard Item', 10, 20)]);
-    gildedRose.updateQuality();
-    expect(gildedRose.items[0].quality).toBe(19);
-    expect(gildedRose.items[0].sellIn).toBe(9);
-  });
+  it.each([
+    [new Item('Standard Item', 10, 20), 9, 19],
+  ])('should decrease quality and sellIn by 1 when sellIn is positive',
+    (item, expectedSellIn, expectedQuality) => {
+      const gildedRose = new GildedRose([item]);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(expectedQuality);
+      expect(gildedRose.items[0].sellIn).toBe(expectedSellIn);
+    });
 
-  it('should decrease quality by 2 and sellIn by 1 when sellIn is negative', () => {
-    const gildedRose = new GildedRose([new Item('Standard Item', -1, 20)]);
-    gildedRose.updateQuality();
-    expect(gildedRose.items[0].quality).toBe(18);
-    expect(gildedRose.items[0].sellIn).toBe(-2);
-  });
+  it.each([
+    [new Item('Standard Item', -1, 20), -2, 18],
+    [new Item('Standard Item', 0, 20), -1, 18],
+  ])('should decrease quality by 2 and sellIn by 1 when sellIn is negative',
+    (item, expectedSellIn, expectedQuality) => {
+      const gildedRose = new GildedRose([item]);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(expectedQuality);
+      expect(gildedRose.items[0].sellIn).toBe(expectedSellIn);
+    });
 })
 

@@ -43,6 +43,9 @@ export class GildedRose {
           case item.name.includes('Backstage passes'):
             this.updateBackstagePassesQuality(item);
             break;
+          case item.name.includes('Conjured'):
+            this.updateDefaultQuality(item, 2); // Conjured items degrade in quality twice as fast
+            break;
           default:
             this.updateDefaultQuality(item);
             break;
@@ -52,6 +55,7 @@ export class GildedRose {
 
     return this.items;
   }
+
   updateAgedBrieQuality(item: Item) {
     if (item.sellIn > 0) {
       item.quality += 1;
@@ -76,14 +80,17 @@ export class GildedRose {
       item.quality = 50;
     }
   }
-  updateDefaultQuality(item: Item) {
-    if (item.sellIn >= 0) {
-      item.quality -= 1;
+  updateDefaultQuality(item: Item, multiplicator = 1) {
+    if (item.sellIn > 0) {
+      item.quality -= 1 * multiplicator;
     } else {
-      item.quality -= 2;
+      item.quality -= 2 * multiplicator;
     }
     if (item.quality < 0) {
       item.quality = 0;
+    }
+    if (item.quality > 50) {
+      item.quality = 50;
     }
   }
 }

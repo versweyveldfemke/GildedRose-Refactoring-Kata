@@ -2,7 +2,8 @@ import { GildedRose, Item } from "@/gilded-rose";
 it.each([
   [new Item('Standard Item', 10, 51)],
   [new Item('Aged Brie', 2, 80)],
-  [new Item('Backstage passes to a TAFKAL80ETC concert', 15, 51)]
+  [new Item('Backstage passes to a TAFKAL80ETC concert', 15, 51)],
+  [new Item('Conjured Mana Cake', 1, 51)]
 ])('should throw an error if quality exceeds 50',
   (item) => {
     const gildedRose = new GildedRose([item]);
@@ -12,7 +13,8 @@ it.each([
 it.each([
   [new Item('Standard Item', 10, -1)],
   [new Item('Aged Brie', 2, -10)],
-  [new Item('Backstage passes to a TAFKAL80ETC concert', 15, -1)]
+  [new Item('Backstage passes to a TAFKAL80ETC concert', 15, -1)],
+  [new Item('Conjured', -3, -10)]
 ])('should throw an error if quality drops below 0',
   (item) => {
     const gildedRose = new GildedRose([item]);
@@ -46,7 +48,11 @@ it.each([
 
 it.each([
   [new Item('Standard Item', -1, 0)],
-  [new Item('Backstage passes to a TAFKAL80ETC concert', -1, 0)]
+  [new Item('Backstage passes to a TAFKAL80ETC concert', -1, 0)],
+  [new Item('Conjured Mana Cake', -1, 0)],
+  [new Item('Conjured Mana Cake', 1, 0)],
+  [new Item('Conjured Mana Cake', -1, 3)],
+  [new Item('Conjured Mana Cake', 1, 1)]
 ])('should not allow quality to drop below 0',
   (item) => {
     const gildedRose = new GildedRose([item]);

@@ -1,4 +1,4 @@
-import { Item, GildedRose } from '../app/gilded-rose.ts';
+import { Item, GildedRose } from '../app/gilded-rose';
 
 console.log("OMGHAI!")
 
@@ -13,7 +13,6 @@ const items = [
   new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
   // this conjured item does not work properly yet
   new Item("Conjured Mana Cake", 3, 6)];
-
 
 const gildedRose = new GildedRose(items);
 
@@ -33,6 +32,7 @@ for (let i = 0; i < days + 1; i++) {
   gildedRose.updateQuality();
 }
 
+/* Behaviour before there were any changes */
 /* 
 -------- day 0 --------
 name, sellIn, quality

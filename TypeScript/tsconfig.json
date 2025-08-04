@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "paths": {
       "@/*": [
-        "app/*"
+        "app/*",
+        "test/*",
       ]
     }
   },
